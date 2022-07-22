@@ -3,6 +3,26 @@
 	{
 		"selected_items":
 		[
+			[
+				"de",
+				"define"
+			],
+			[
+				"u",
+				"u8"
+			],
+			[
+				"in",
+				"include_flags"
+			],
+			[
+				"c",
+				"compiler_flags"
+			],
+			[
+				"Enab",
+				"EnableDelayedExpansion"
+			]
 		]
 	},
 	"buffers":
@@ -20,6 +40,18 @@
 		"selected_items":
 		[
 			[
+				"format",
+				"Clang Format: Format Selection"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
 				"Package Control",
 				"Package Control: Install Package"
 			],
@@ -32,9 +64,11 @@
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 142.0,
 		"history":
 		[
+			"build.bat",
+			"df"
 		]
 	},
 	"distraction_free":
@@ -48,18 +82,29 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Dev/Engines/vulkan-engine"
+		"/C/Dev/Engines/vulkan-engine",
+		"/C/Dev/Engines/vulkan-engine/bin",
+		"/C/Dev/Engines/vulkan-engine/testbed",
+		"/C/Dev/Engines/vulkan-engine/testbed/src"
 	],
 	"file_history":
 	[
+		"/C/Dev/Engines/vulkan-engine/testbed/src/main.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/defines.h",
+		"/C/Dev/Engines/vulkan-engine/engine/build.bat",
+		"/C/Dev/Engines/vulkan-engine/build-all.bat",
+		"/C/Dev/Engines/vulkan-engine/engine/src/test.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/test.c",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/build.bat",
+		"/C/Dev/Engines/vulkan-engine/engine/src/build.bat"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 107.0,
 		"where_history":
 		[
 		]
@@ -69,6 +114,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"include_flags",
+			"linkerFlags",
+			"includeFlags",
+			"compilerFlags",
+			"cFilenames",
+			"u",
+			"u8",
+			"// Signed int types.\ntypedef signed char i8;\ntypedef signed short i16;\ntypedef signed int i32;\ntypedef signed long long i64;",
+			"setlocal"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -101,11 +155,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 29.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 44.0
 	},
 	"layout":
 	{
@@ -138,7 +192,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 0.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -172,7 +226,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
