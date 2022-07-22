@@ -47,7 +47,7 @@
                 "_UNICODE",
                 "EXPORT"
             ],
-            "windowsSdkVersion": "10.0.18362.0",
+            "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",

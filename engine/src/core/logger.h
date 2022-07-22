@@ -14,12 +14,12 @@
 #endif
 
 typedef enum log_level {
-	LOG_LEVEL_FATAL = 0,
-	LOG_LEVEL_ERROR = 1,
-	LOG_LEVEL_WARN = 2,
-	LOG_LEVEL_INFO = 3,
-	LOG_LEVEL_DEBUG = 4,
-	LOG_LEVEL_TRACE = 5,
+    LOG_LEVEL_FATAL = 0,
+    LOG_LEVEL_ERROR = 1,
+    LOG_LEVEL_WARN = 2,
+    LOG_LEVEL_INFO = 3,
+    LOG_LEVEL_DEBUG = 4,
+    LOG_LEVEL_TRACE = 5,
 } log_level;
 
 b8 init_logging();
@@ -42,7 +42,6 @@ API void log_output(log_level level, const char* msg, ...);
 #define WARN(message, ...)
 #endif
 
-
 #if LOG_INFO_ENABLED == 1
 // Logs and warn.
 #define INFO(message, ...) log_output(LOG_LEVEL_INFO, message, ##__VA_ARGS__);
@@ -50,14 +49,12 @@ API void log_output(log_level level, const char* msg, ...);
 #define INFO(message, ...)
 #endif
 
-
 #if LOG_DEBUG_ENABLED == 1
 // Logs and DEBUG.
 #define DEBUG(message, ...) log_output(LOG_LEVEL_DEBUG, message, ##__VA_ARGS__);
 #else
 #define DEBUG(message, ...)
 #endif
-
 
 #if LOG_TRACE_ENABLED == 1
 // Logs and TRACE.
