@@ -57,7 +57,6 @@ b8 platform_start(
 
     u32 window_style = WS_OVERLAPPED | WS_SYSMENU | WS_CAPTION;
     u32 window_ex_style = WS_EX_APPWINDOW;
-
     window_style |= WS_MAXIMIZEBOX;
     window_style |= WS_MINIMIZEBOX;
     window_style |= WS_THICKFRAME;

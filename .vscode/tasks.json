@@ -46,13 +46,13 @@
             "type": "shell",
             "label": "Build Everything",
             "windows": {
-                "command": "${workspaceFolder}\\build-all.bat",
+                "command": "${workspaceFolder}\\build-all.bat"
             },
             "linux": {
-                "command": "${workspaceFolder}/build-all.sh",
+                "command": "${workspaceFolder}/build-all.sh"
             },
             "osx": {
-                "command": "${workspaceFolder}/build-all-macos.sh",
+                "command": "${workspaceFolder}/build-all-macos.sh"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -64,6 +64,26 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang.exe сборка активного файла",
+            "command": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Задача создана отладчиком."
         }
     ]
 }

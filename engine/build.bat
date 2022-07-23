@@ -11,7 +11,7 @@ FOR /R %%f in (*.c) do (
 REM echo "Files:" %c_files%
 
 SET assembly=engine
-SET compiler_flags=-g -shared -Wvarargs -Wall -Werror
+SET compiler_flags=-g -shared -Wvarargs -Wall -Werror -std=c17
 REM -Wall -Werror
 SET include_flags=-Isrc -I%VULKAN_SDK%/Include
 SET linker_flags=-luser32 -lvulkan-1 -L%VULKAN_SDK%/Lib
