@@ -11,8 +11,8 @@ void platform_shut(platform_state* state);
 
 b8 platform_pump_messages(platform_state* state);
 
-API void* platform_alloc(u64 size, b8 aligned);
-API void platform_free(void* block, b8 aligned);
+void* platform_alloc(u64 size, b8 aligned);
+void platform_free(void* block, b8 aligned);
 void* platform_zero_mem(void* block, u64 size);
 void* platform_copy_mem(void* dest, const void* src, u64 size);
 void* platform_set_mem(void* dest, i32 value, u64 size);

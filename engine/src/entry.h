@@ -2,6 +2,7 @@
 
 #include "core/application.h"
 #include "core/logger.h"
+#include "core/memory.h"
 #include "game_types.h"
 
 extern b8 create_game(game* out_game);
@@ -10,6 +11,9 @@ extern b8 create_game(game* out_game);
  * The main entry of the application.
  */
 int main(void) {
+	// Pre init.
+	memory_init();
+
 	// Create a game instance.
 	game game_inst;
 	if (!create_game(&game_inst)) {
@@ -34,6 +38,8 @@ int main(void) {
 		INFO("Application did not shutdown gracefully,");
     	return 2;
     }
+
+    memory_shut();
 
     return 0;
 }
