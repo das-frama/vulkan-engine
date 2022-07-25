@@ -1,4 +1,4 @@
-#include "memory.c"
+#include "memory.h"
 
 #include "core/logger.h"
 #include "platform/platform.h"
@@ -9,7 +9,7 @@
 struct memory_stats {
 	u64 total_allocated;
 	u64 tagged_allocations[MEMORY_TAG_MAX_TAGS];
-}
+};
 
 static const char* memory_tag_strings[MEMORY_TAG_MAX_TAGS] = {
 	"UNKNOWN	",

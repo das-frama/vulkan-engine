@@ -51,6 +51,74 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "engine/src/platform/platform.h",
+			"settings":
+			{
+				"buffer_size": 750,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "testbed/src/entry.c",
+			"settings":
+			{
+				"buffer_size": 668,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					4,
+					3,
+					"left_delete",
+					null,
+					"AwAAAG4CAAAAAAAAbgIAAAAAAAABAAAAZW0CAAAAAAAAbQIAAAAAAAABAAAAdGwCAAAAAAAAbAIAAAAAAAABAAAAYQ",
+					"AQAAAAAAAAABAAAAbwIAAAAAAABvAgAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "testbed/src/game.h",
+			"settings":
+			{
+				"buffer_size": 286,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			},
+			"undo_stack":
+			[
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": " game)"
+					},
+					"BgAAAEoAAAAAAAAASwAAAAAAAAAAAAAASwAAAAAAAABMAAAAAAAAAAAAAABMAAAAAAAAAE0AAAAAAAAAAAAAAE0AAAAAAAAATgAAAAAAAAAAAAAATgAAAAAAAABPAAAAAAAAAAAAAABPAAAAAAAAAFAAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					1,
+					"left_delete",
+					null,
+					"AQAAAE8AAAAAAAAATwAAAAAAAAABAAAAKQ",
+					"AQAAAAAAAAABAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					6,
+					1,
+					"insert",
+					{
+						"characters": "_state"
+					},
+					"BgAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABRAAAAAAAAAAAAAABRAAAAAAAAAFIAAAAAAAAAAAAAAFIAAAAAAAAAUwAAAAAAAAAAAAAAUwAAAAAAAABUAAAAAAAAAAAAAABUAAAAAAAAAFUAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAATwAAAAAAAABPAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
 	],
 	"build_system": "Packages/User/build.bat.sublime-build",
 	"build_system_choices":
@@ -96,11 +164,11 @@
 			],
 			[
 				"Packages/User/build.bat.sublime-build",
-				"Build All"
+				"Run Testbet"
 			]
 		]
 	],
-	"build_varint": "",
+	"build_varint": "Run Testbet",
 	"command_palette":
 	{
 		"height": 0.0,
@@ -173,22 +241,31 @@
 	[
 		"/C/Dev/Engines/vulkan-engine",
 		"/C/Dev/Engines/vulkan-engine/engine",
-		"/C/Dev/Engines/vulkan-engine/engine/src"
+		"/C/Dev/Engines/vulkan-engine/engine/src",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core",
+		"/C/Dev/Engines/vulkan-engine/engine/src/platform",
+		"/C/Dev/Engines/vulkan-engine/testbed",
+		"/C/Dev/Engines/vulkan-engine/testbed/src"
 	],
 	"file_history":
 	[
-		"/C/Dev/Engines/vulkan-engine/engine/src/game_types.h",
-		"/C/Dev/Engines/vulkan-engine/engine/src/entry.h",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform_win32.c",
+		"/C/Dev/Engines/vulkan-engine/engine/build.bat",
+		"/C/Dev/Engines/vulkan-engine/testbed/build.bat",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/entry.c",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/game.h",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/game.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.c",
-		"/C/Dev/Engines/vulkan-engine/testbed/src/main.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/entry.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/game_types.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.h",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/main.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/logger.c",
 		"/C/Users/frama/AppData/Roaming/Sublime Text/Packages/User/build.bat.sublime-build",
 		"/C/Users/frama/AppData/Roaming/Sublime Text/Packages/User/build.batsublime-build",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/asserts.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/logger.h",
-		"/C/Dev/Engines/vulkan-engine/engine/build.bat",
 		"/C/Dev/Engines/vulkan-engine/engine/src/defines.h",
 		"/C/Dev/Engines/vulkan-engine/build-all.bat",
 		"/C/Dev/Engines/vulkan-engine/engine/src/test.h",
@@ -212,6 +289,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"}",
 			"application_run",
 			"API",
 			"}",
@@ -263,12 +341,106 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "engine/src/platform/platform.h",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 750,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "testbed/src/entry.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "testbed/src/game.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 43.0
 	},
 	"input":
 	{
@@ -299,7 +471,7 @@
 	"menu_visible": false,
 	"output.exec":
 	{
-		"height": 138.0
+		"height": 255.0
 	},
 	"output.find_results":
 	{
@@ -319,8 +491,20 @@
 		"selected_items":
 		[
 			[
+				"entry",
+				"testbed\\src\\entry.c"
+			],
+			[
+				"plat",
+				"engine\\src\\platform\\platform.h"
+			],
+			[
 				"game",
 				"engine\\src\\game_types.h"
+			],
+			[
+				"app",
+				"engine\\src\\core\\application.h"
 			],
 			[
 				"main",

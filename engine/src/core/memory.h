@@ -19,7 +19,7 @@ typedef enum {
 	MEMORY_TAG_TRANSFORM,
 	MEMORY_TAG_ENTITY,
 	MEMORY_TAG_ENTITY_NODE,
-	MEMORY_TAG_SCENE
+	MEMORY_TAG_SCENE,
 
 	MEMORY_TAG_MAX_TAGS,
 } memory_tag;
@@ -30,7 +30,7 @@ API void memory_shut();
 API void* memory_allocate(u64 size, memory_tag tag);
 API void memory_free(void* block, u64 size, memory_tag tag);
 API void* memory_zero(void* block, u64 size);
-API void* memory_free(void* dest, const void* src, u64 size);
+API void* memory_copy(void* dest, const void* src, u64 size);
 API void* memory_set(void* dest, i32 value, u64 size);
 
 API char* get_memory_usage_str();
