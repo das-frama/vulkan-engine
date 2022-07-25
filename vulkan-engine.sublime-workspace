@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"regis",
+				"registered_event"
+			],
+			[
+				"regi",
+				"registered_count"
+			],
+			[
+				"re",
+				"registered_event"
+			],
+			[
+				"MA",
+				"MAX_MESSAGE_CODES"
+			],
+			[
+				"valu",
+				"value_ptr"
+			],
+			[
+				"memory",
+				"memory_copy"
+			],
+			[
+				"DA",
+				"DARRAY_LENGTH"
+			],
+			[
+				"MEMORA",
+				"MEMORY_TAG_DARRAY"
+			],
+			[
+				"DARRA",
+				"DARRAY_FIELD_LENGTH"
+			],
+			[
+				"arr",
+				"array_size"
+			],
+			[
+				"DARRAY",
+				"DARRAY_CAPACITY"
+			],
+			[
+				"_darra",
+				"_darray_field_set"
+			],
+			[
+				"event",
+				"event_code_entry"
+			],
+			[
 				"init",
 				"initialized"
 			],
@@ -51,74 +103,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "engine/src/platform/platform.h",
-			"settings":
-			{
-				"buffer_size": 750,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "testbed/src/entry.c",
-			"settings":
-			{
-				"buffer_size": 668,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					4,
-					3,
-					"left_delete",
-					null,
-					"AwAAAG4CAAAAAAAAbgIAAAAAAAABAAAAZW0CAAAAAAAAbQIAAAAAAAABAAAAdGwCAAAAAAAAbAIAAAAAAAABAAAAYQ",
-					"AQAAAAAAAAABAAAAbwIAAAAAAABvAgAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		},
-		{
-			"file": "testbed/src/game.h",
-			"settings":
-			{
-				"buffer_size": 286,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			},
-			"undo_stack":
-			[
-				[
-					4,
-					1,
-					"insert",
-					{
-						"characters": " game)"
-					},
-					"BgAAAEoAAAAAAAAASwAAAAAAAAAAAAAASwAAAAAAAABMAAAAAAAAAAAAAABMAAAAAAAAAE0AAAAAAAAAAAAAAE0AAAAAAAAATgAAAAAAAAAAAAAATgAAAAAAAABPAAAAAAAAAAAAAABPAAAAAAAAAFAAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAASgAAAAAAAABKAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					5,
-					1,
-					"left_delete",
-					null,
-					"AQAAAE8AAAAAAAAATwAAAAAAAAABAAAAKQ",
-					"AQAAAAAAAAABAAAAUAAAAAAAAABQAAAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					6,
-					1,
-					"insert",
-					{
-						"characters": "_state"
-					},
-					"BgAAAE8AAAAAAAAAUAAAAAAAAAAAAAAAUAAAAAAAAABRAAAAAAAAAAAAAABRAAAAAAAAAFIAAAAAAAAAAAAAAFIAAAAAAAAAUwAAAAAAAAAAAAAAUwAAAAAAAABUAAAAAAAAAAAAAABUAAAAAAAAAFUAAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAATwAAAAAAAABPAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		}
 	],
 	"build_system": "Packages/User/build.bat.sublime-build",
 	"build_system_choices":
@@ -168,7 +152,7 @@
 			]
 		]
 	],
-	"build_varint": "Run Testbet",
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 0.0,
@@ -242,21 +226,24 @@
 		"/C/Dev/Engines/vulkan-engine",
 		"/C/Dev/Engines/vulkan-engine/engine",
 		"/C/Dev/Engines/vulkan-engine/engine/src",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core",
-		"/C/Dev/Engines/vulkan-engine/engine/src/platform",
-		"/C/Dev/Engines/vulkan-engine/testbed",
-		"/C/Dev/Engines/vulkan-engine/testbed/src"
+		"/C/Dev/Engines/vulkan-engine/engine/src/containers"
 	],
 	"file_history":
 	[
-		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform_win32.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/memory.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/memory.c",
 		"/C/Dev/Engines/vulkan-engine/engine/build.bat",
-		"/C/Dev/Engines/vulkan-engine/testbed/build.bat",
-		"/C/Dev/Engines/vulkan-engine/testbed/src/entry.c",
-		"/C/Dev/Engines/vulkan-engine/testbed/src/game.h",
-		"/C/Dev/Engines/vulkan-engine/testbed/src/game.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/containers/darray.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform_win32.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/containers/darray.c",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/game.h",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/entry.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform.h",
+		"/C/Dev/Engines/vulkan-engine/testbed/build.bat",
+		"/C/Dev/Engines/vulkan-engine/testbed/src/game.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/entry.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/game_types.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.h",
@@ -275,11 +262,11 @@
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
-		"height": 107.0,
+		"height": 113.0,
 		"where_history":
 		[
 		]
@@ -289,6 +276,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"typeof",
+			"array_sizer",
+			"API b8 event_register(u16 code, void* listener, PFN_on_event on_event);",
+			"i64",
 			"}",
 			"application_run",
 			"API",
@@ -341,106 +332,12 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "engine/src/platform/platform.h",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 750,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "testbed/src/entry.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								68,
-								68
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "testbed/src/game.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 286,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								85,
-								85
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 43.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -481,7 +378,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 58.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -491,20 +388,44 @@
 		"selected_items":
 		[
 			[
+				"mem",
+				"engine\\src\\core\\memory.h"
+			],
+			[
+				"bui",
+				"engine\\build.bat"
+			],
+			[
+				"event",
+				"engine\\src\\core\\event.c"
+			],
+			[
+				"da",
+				"engine\\src\\containers\\darray.h"
+			],
+			[
+				"darra",
+				"engine\\src\\containers\\darray.c"
+			],
+			[
+				"app",
+				"engine\\src\\core\\application.c"
+			],
+			[
+				"plat",
+				"engine\\src\\platform\\platform_win32.c"
+			],
+			[
+				"even",
+				"engine\\src\\core\\event.c"
+			],
+			[
 				"entry",
 				"testbed\\src\\entry.c"
 			],
 			[
-				"plat",
-				"engine\\src\\platform\\platform.h"
-			],
-			[
 				"game",
 				"engine\\src\\game_types.h"
-			],
-			[
-				"app",
-				"engine\\src\\core\\application.h"
 			],
 			[
 				"main",
@@ -546,7 +467,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 216.0,
 	"status_bar_visible": true,
 	"template_settings":

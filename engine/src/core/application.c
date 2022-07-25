@@ -5,6 +5,7 @@
 #include "platform/platform.h"
 #include "core/memory.h"
 #include "core/event.h"
+#include "core/input.h"
 
 typedef struct {
 	game* game_inst;
@@ -19,6 +20,9 @@ typedef struct {
 static b8 initialized = false;
 static application_state app_state;
 
+b8 application_on_event(u16 code, void* sender, void* listener_inst, event_context context);
+b8 application_on_key(u16 code, void* sender, void* listener_inst, event_context context);
+
 b8 application_create(game* game_inst) {
 	if (initialized) {
 		ERROR("Application already initialized.");
@@ -29,6 +33,7 @@ b8 application_create(game* game_inst) {
     
 	// Init subsystems.
 	init_logging();
+	input_init();
     
 	app_state.is_running = true;
 	app_state.is_suspended = false;
@@ -37,6 +42,11 @@ b8 application_create(game* game_inst) {
 		ERROR("Event system failed initialization. Application cannot continue.");
 		return false;
 	}
+
+	// Listen events.
+	event_register(EVENT_CODE_APPLICATION_QUIT, 0, application_on_event);
+	event_register(EVENT_CODE_KEY_PRESSED, 0, application_on_key);
+	event_register(EVENT_CODE_KEY_RELEASED, 0, application_on_key);
     
 	if (!platform_start(
                         &app_state.platform, 
@@ -83,14 +93,57 @@ b8 application_run() {
 				app_state.is_running = false;
 				break;
 			}
+
+			// Process input.
+			input_update(0);
 		}
     }
     
     app_state.is_running = false;
 
+    event_unregister(EVENT_CODE_APPLICATION_QUIT, 0, application_on_event);
+	event_unregister(EVENT_CODE_KEY_PRESSED, 0, application_on_key);
+	event_unregister(EVENT_CODE_KEY_RELEASED, 0, application_on_key);
     event_shut();
+    input_shut();
     
     platform_shut(&app_state.platform);
     
     return true;
+}
+
+b8 application_on_event(u16 code, void* sender, void* listener_inst, event_context context) {
+	switch (code) {
+		case EVENT_CODE_APPLICATION_QUIT: {
+			INFO("EVENT_CODE_APPLICATION_QUIT recieved, shutting down");
+			app_state.is_running = false;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+b8 application_on_key(u16 code, void* sender, void* listener_inst, event_context context) {
+	if (code == EVENT_CODE_KEY_PRESSED) {
+		u16 key_code = context.data.u16[0];
+		if (key_code == KEY_ESCAPE) {
+			event_context data = {};
+			event_fire(EVENT_CODE_APPLICATION_QUIT, 0, data);
+			return true;
+		} else if (key_code == KEY_A) {
+			DEBUG("Explicit - A key pressed.");
+		} else {
+			DEBUG("'%c' key pressed in window.", key_code);
+		}
+	} else if (code == EVENT_CODE_KEY_RELEASED) {
+		u16 key_code = context.data.u16[0];
+		if (key_code == KEY_B) {
+			DEBUG("Explicit - B key released.");
+		} else {
+			DEBUG("'%c' key released in window.", key_code);
+		}
+	}
+
+	return false;
 }
