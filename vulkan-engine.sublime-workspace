@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"rem",
+				"remaining_ms"
+			],
+			[
+				"u",
+				"u64"
+			],
+			[
+				"fram",
+				"frame_end_time"
+			],
+			[
+				"fra",
+				"frame_elapsed_time"
+			],
+			[
+				"clo",
+				"clock_update"
+			],
+			[
+				"applicaton",
+				"application_on_event"
+			],
+			[
+				"EVENT",
+				"EVENT_CODE_APPLICATION_QUIT"
+			],
+			[
+				"evnt",
+				"event_fire"
+			],
+			[
+				"BUTT",
+				"BUTTON_MAX_BUTTONS"
+			],
+			[
+				"inuptU",
+				"input_process_mouse_wheel"
+			],
+			[
+				"event",
+				"event_context"
+			],
+			[
+				"bu",
+				"button"
+			],
+			[
+				"mouse",
+				"mouse_curr"
+			],
+			[
+				"key",
+				"keyboard_curr"
+			],
+			[
 				"regis",
 				"registered_event"
 			],
@@ -52,10 +108,6 @@
 				"_darray_field_set"
 			],
 			[
-				"event",
-				"event_code_entry"
-			],
-			[
 				"init",
 				"initialized"
 			],
@@ -86,10 +138,6 @@
 			[
 				"de",
 				"define"
-			],
-			[
-				"u",
-				"u8"
 			],
 			[
 				"c",
@@ -148,11 +196,11 @@
 			],
 			[
 				"Packages/User/build.bat.sublime-build",
-				"Run Testbet"
+				"Build All"
 			]
 		]
 	],
-	"build_varint": "",
+	"build_varint": "Build All",
 	"command_palette":
 	{
 		"height": 0.0,
@@ -226,27 +274,35 @@
 		"/C/Dev/Engines/vulkan-engine",
 		"/C/Dev/Engines/vulkan-engine/engine",
 		"/C/Dev/Engines/vulkan-engine/engine/src",
-		"/C/Dev/Engines/vulkan-engine/engine/src/containers"
+		"/C/Dev/Engines/vulkan-engine/engine/src/containers",
+		"/C/Dev/Engines/vulkan-engine/engine/src/renderer",
+		"/C/Dev/Engines/vulkan-engine/testbed",
+		"/C/Dev/Engines/vulkan-engine/testbed/src"
 	],
 	"file_history":
 	[
+		"/C/Dev/Engines/vulkan-engine/engine/src/renderer/renderer_types.inl",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/clock.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/clock.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform_win32.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/input.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.c",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/input.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/entry.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.h",
+		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/memory.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/memory.c",
 		"/C/Dev/Engines/vulkan-engine/engine/build.bat",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.h",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core/event.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/containers/darray.h",
-		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform_win32.c",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/containers/darray.c",
 		"/C/Dev/Engines/vulkan-engine/testbed/src/game.h",
 		"/C/Dev/Engines/vulkan-engine/testbed/src/entry.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/platform/platform.h",
 		"/C/Dev/Engines/vulkan-engine/testbed/build.bat",
 		"/C/Dev/Engines/vulkan-engine/testbed/src/game.c",
-		"/C/Dev/Engines/vulkan-engine/engine/src/entry.h",
 		"/C/Dev/Engines/vulkan-engine/engine/src/game_types.h",
-		"/C/Dev/Engines/vulkan-engine/engine/src/core/application.h",
 		"/C/Dev/Engines/vulkan-engine/testbed/src/main.c",
 		"/C/Dev/Engines/vulkan-engine/engine/src/core/logger.c",
 		"/C/Users/frama/AppData/Roaming/Sublime Text/Packages/User/build.bat.sublime-build",
@@ -262,7 +318,7 @@
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -276,6 +332,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"EVENT_COE_MOUSE_MOVED",
 			"typeof",
 			"array_sizer",
 			"API b8 event_register(u16 code, void* listener, PFN_on_event on_event);",
@@ -337,7 +394,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 29.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -378,7 +435,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 54.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -387,6 +444,26 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ap",
+				"engine\\src\\core\\application.c"
+			],
+			[
+				"wi",
+				"engine\\src\\platform\\platform_win32.c"
+			],
+			[
+				"entry",
+				"engine\\src\\entry.h"
+			],
+			[
+				"plat",
+				"engine\\src\\platform\\platform_win32.c"
+			],
+			[
+				"app",
+				"engine\\src\\core\\application.c"
+			],
 			[
 				"mem",
 				"engine\\src\\core\\memory.h"
@@ -408,20 +485,8 @@
 				"engine\\src\\containers\\darray.c"
 			],
 			[
-				"app",
-				"engine\\src\\core\\application.c"
-			],
-			[
-				"plat",
-				"engine\\src\\platform\\platform_win32.c"
-			],
-			[
 				"even",
 				"engine\\src\\core\\event.c"
-			],
-			[
-				"entry",
-				"testbed\\src\\entry.c"
 			],
 			[
 				"game",
@@ -467,7 +532,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 216.0,
 	"status_bar_visible": true,
 	"template_settings":

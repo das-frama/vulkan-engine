@@ -6,6 +6,7 @@
 #include "core/memory.h"
 #include "core/event.h"
 #include "core/input.h"
+#include "core/clock.h"
 
 typedef struct {
 	game* game_inst;
@@ -14,6 +15,7 @@ typedef struct {
 	platform_state platform;
 	i16 width;
 	i16 height;
+	clock clock;
 	f64 last_time;
 } application_state;
 
@@ -72,6 +74,12 @@ b8 application_create(game* game_inst) {
 }
 
 b8 application_run() {
+	clock_start(&app_state.clock);
+	clock_update(&app_state.clock);
+	app_state.last_time = app_state.clock.elapsed;
+	f64 running_time = 0;
+	u8 frame_count = 0;
+	f64 target_frame_seconds = 1.0f / 60.0f; // 16.6ms
 	// INFO(get_memory_usage_str());
 	
 	while (app_state.is_running) {
@@ -80,22 +88,48 @@ b8 application_run() {
 		}
         
 		if (!app_state.is_suspended) {
+			// Update clock.
+			clock_update(&app_state.clock);
+			f64 current_time = app_state.clock.elapsed;
+			f64 dt = current_time - app_state.last_time;
+			f64 frame_start_time = platform_get_abs_time();
+
 			// Update.
-			if (!app_state.game_inst->update(app_state.game_inst, (f32)0)) {
+			if (!app_state.game_inst->update(app_state.game_inst, (f32)delta)) {
 				FATAL("Game update failed, shutting down.");
 				app_state.is_running = false;
 				break;
 			}
 
 			// Render.
-			if (!app_state.game_inst->render(app_state.game_inst, (f32)0)) {
+			if (!app_state.game_inst->render(app_state.game_inst, (f32)delta)) {
 				FATAL("Game render failed, shutting down.");
 				app_state.is_running = false;
 				break;
 			}
 
+			// How long the frame took.
+			f64 frame_end_time = platform_get_abs_time();
+			f64 frame_elapsed_time = frame_end_time - frame_start_time;
+			running_time += frame_elapsed_time;
+			f64 remaining_seconds = target_frame_seconds - frame_elapsed_time;
+
+			if (remaining_seconds > 0) {
+				u64 remaining_ms = (remaining_seconds * 1000);
+				// if tehere is time left, give it back to the OS.
+				b8 limit_frames = false;
+				if (remaining_ms > 0 && limit_frames) {
+					platform_sleep(remaining_ms - 1);
+				}
+
+				frame_count++;
+			}
+
 			// Process input.
-			input_update(0);
+			input_update(delta);
+
+			// Update last time. 
+			app_state.last_time = current_time;
 		}
     }
     
