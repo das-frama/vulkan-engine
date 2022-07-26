@@ -95,14 +95,14 @@ b8 application_run() {
 			f64 frame_start_time = platform_get_abs_time();
 
 			// Update.
-			if (!app_state.game_inst->update(app_state.game_inst, (f32)delta)) {
+			if (!app_state.game_inst->update(app_state.game_inst, (f32)dt)) {
 				FATAL("Game update failed, shutting down.");
 				app_state.is_running = false;
 				break;
 			}
 
 			// Render.
-			if (!app_state.game_inst->render(app_state.game_inst, (f32)delta)) {
+			if (!app_state.game_inst->render(app_state.game_inst, (f32)dt)) {
 				FATAL("Game render failed, shutting down.");
 				app_state.is_running = false;
 				break;
@@ -126,7 +126,7 @@ b8 application_run() {
 			}
 
 			// Process input.
-			input_update(delta);
+			input_update(dt);
 
 			// Update last time. 
 			app_state.last_time = current_time;
