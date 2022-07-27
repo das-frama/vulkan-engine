@@ -4,6 +4,8 @@
 
 #include "core/logger.h"
 
+#include "container/darray.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <mach/mach_time.h>
@@ -399,5 +401,10 @@ void platform_sleep(u64 ms) {
     usleep((ms % 1000) * 1000);
 #endif
 }
+
+void platform_get_required_extension_names(const char*** names_darray) {
+    darray_push(names_darray, &"VK_KHR_macos_surface");
+}
+
 
 #endif
