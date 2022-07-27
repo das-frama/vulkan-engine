@@ -7,6 +7,7 @@
 #include "core/event.h"
 #include "core/input.h"
 #include "core/clock.h"
+#include "renderer/renderer_frontend.h"
 
 typedef struct {
 	game* game_inst;
@@ -59,7 +60,14 @@ b8 application_create(game* game_inst) {
                         game_inst->app_config.start_height)) {
 		return false;
     }
+
+    // Renderer startup.
+    if (!renderer_init(game_inst->app_config.name, &app_state.platform)) {
+    	FATAL("Failed to initialize renderer. Aborting applicaton...");
+    	return false;
+    }
     
+
     // Initialize the game.
     if (!app_state.game_inst->init(app_state.game_inst)) {
     	FATAL("Game failed to initialize.");
@@ -108,6 +116,11 @@ b8 application_run() {
 				break;
 			}
 
+			// Draw frame TODO: make robust.
+			render_packet packet;
+			packet.dt = dt;
+			renderer_draw_frame(&packet);
+
 			// How long the frame took.
 			f64 frame_end_time = platform_get_abs_time();
 			f64 frame_elapsed_time = frame_end_time - frame_start_time;
@@ -140,6 +153,8 @@ b8 application_run() {
 	event_unregister(EVENT_CODE_KEY_RELEASED, 0, application_on_key);
     event_shut();
     input_shut();
+    
+    renderer_shut();
     
     platform_shut(&app_state.platform);
     
