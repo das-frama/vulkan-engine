@@ -1,9 +1,7 @@
 version(2);
-project_name = "vulkan_engine";
-
+project_name = "testbed";
 patterns = {
 "*.c",
-"*.inl",
 "*.cpp",
 "*.h",
 "*.m",
@@ -14,37 +12,26 @@ patterns = {
 blacklist_patterns = {
 ".*",
 };
-
+load_paths_base = {
+ { ".", .relative = true, .recursive = true, },
+};
 load_paths = {
-.win = {
-{ .path = "", .recursive = true, .relative = true, },
-},
-.linux = {
-{ .path = "", .recursive = true, .relative = true, },
-},
-.mac = {
-{ .path = "", .recursive = true, .relative = true, },
-},
+ .win = load_paths_base,
+ .linux = load_paths_base,
+ .mac = load_paths_base,
 };
 
 commands = {
-.build = {
-.win = "build-all.bat",
-.linux = "./build.sh",
-.mac = "./build-all-macos.sh",
-.out = "*compilation*",
-.footer_panel = true,
-.save_dirty_files = true,
-.cursor_at_end = false,
-},
-.run = {
-.win = "bin\testbed",
-.linux = "bin/testbed",
-.mac = "bin/testbed",
-.out = "*run*",
-.footer_panel = false,
-.save_dirty_files = false,
-.cursor_at_end = false,
-},
+ .build = { .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .win = "build-all.bat",
+   .linux = "./build-all.sh",
+   .mac = "./build-all-macos.sh", },
+ .run = { .out = "*run*", .footer_panel = false, .save_dirty_files = false,
+   .win = "bin\\testbed",
+   .linux = "bin/testbed",
+   .mac = "bin/testbed", },
 };
-
+fkey_command = {
+.F1 = "run",
+.F2 = "build",
+};

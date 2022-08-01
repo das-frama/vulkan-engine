@@ -134,6 +134,8 @@ void vulkan_renderer_backend_shut(renderer_backend* backend) {
 		func(context.instance, context.debug_messenger, context.allocator);
 	}
     
+    vulkan_device_destroy(&context);
+    
 	DEBUG("Destroying Vulkan instance...");
     vkDestroySurfaceKHR(context.instance, context.surface, 0);
 	vkDestroyInstance(context.instance, context.allocator);

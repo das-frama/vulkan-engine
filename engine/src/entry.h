@@ -13,20 +13,20 @@ extern b8 create_game(game* out_game);
 int main(void) {
 	// Pre init.
 	memory_init();
-
+    
 	// Create a game instance.
 	game game_inst;
 	if (!create_game(&game_inst)) {
 		ERROR("Could not create game!");
 		return -1;
 	}
-
+    
 	// Ensure the function pointer exist.
 	if (!game_inst.render || !game_inst.update || !game_inst.init || !game_inst.on_resize) {
 		FATAL("The game's function pointers must be assigned!");
 		return -2;
 	}
-
+    
 	// Initialization.
     if (!application_create(&game_inst)) {
     	INFO("Application failed to create!");
@@ -38,8 +38,8 @@ int main(void) {
 		INFO("Application did not shutdown gracefully,");
     	return 2;
     }
-
+    
     memory_shut();
-
+    
     return 0;
 }

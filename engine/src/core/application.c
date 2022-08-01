@@ -40,12 +40,12 @@ b8 application_create(game* game_inst) {
     
 	app_state.is_running = true;
 	app_state.is_suspended = false;
-
+    
 	if (!event_init()) {
 		ERROR("Event system failed initialization. Application cannot continue.");
 		return false;
 	}
-
+    
 	// Listen events.
 	event_register(EVENT_CODE_APPLICATION_QUIT, 0, application_on_event);
 	event_register(EVENT_CODE_KEY_PRESSED, 0, application_on_key);
@@ -60,14 +60,14 @@ b8 application_create(game* game_inst) {
                         game_inst->app_config.start_height)) {
 		return false;
     }
-
+    
     // Renderer startup.
     if (!renderer_init(game_inst->app_config.name, &app_state.platform)) {
     	FATAL("Failed to initialize renderer. Aborting applicaton...");
     	return false;
     }
     
-
+    
     // Initialize the game.
     if (!app_state.game_inst->init(app_state.game_inst)) {
     	FATAL("Game failed to initialize.");
@@ -101,32 +101,32 @@ b8 application_run() {
 			f64 current_time = app_state.clock.elapsed;
 			f64 dt = current_time - app_state.last_time;
 			f64 frame_start_time = platform_get_abs_time();
-
+            
 			// Update.
 			if (!app_state.game_inst->update(app_state.game_inst, (f32)dt)) {
 				FATAL("Game update failed, shutting down.");
 				app_state.is_running = false;
 				break;
 			}
-
+            
 			// Render.
 			if (!app_state.game_inst->render(app_state.game_inst, (f32)dt)) {
 				FATAL("Game render failed, shutting down.");
 				app_state.is_running = false;
 				break;
 			}
-
+            
 			// Draw frame TODO: make robust.
 			render_packet packet;
 			packet.dt = dt;
 			renderer_draw_frame(&packet);
-
+            
 			// How long the frame took.
 			f64 frame_end_time = platform_get_abs_time();
 			f64 frame_elapsed_time = frame_end_time - frame_start_time;
 			running_time += frame_elapsed_time;
 			f64 remaining_seconds = target_frame_seconds - frame_elapsed_time;
-
+            
 			if (remaining_seconds > 0) {
 				u64 remaining_ms = (remaining_seconds * 1000);
 				// if tehere is time left, give it back to the OS.
@@ -134,20 +134,20 @@ b8 application_run() {
 				if (remaining_ms > 0 && limit_frames) {
 					platform_sleep(remaining_ms - 1);
 				}
-
+                
 				frame_count++;
 			}
-
+            
 			// Process input.
 			input_update(dt);
-
+            
 			// Update last time. 
 			app_state.last_time = current_time;
 		}
     }
     
     app_state.is_running = false;
-
+    
     event_unregister(EVENT_CODE_APPLICATION_QUIT, 0, application_on_event);
 	event_unregister(EVENT_CODE_KEY_PRESSED, 0, application_on_key);
 	event_unregister(EVENT_CODE_KEY_RELEASED, 0, application_on_key);
@@ -169,7 +169,7 @@ b8 application_on_event(u16 code, void* sender, void* listener_inst, event_conte
 			return true;
 		}
 	}
-
+    
 	return false;
 }
 
@@ -193,6 +193,6 @@ b8 application_on_key(u16 code, void* sender, void* listener_inst, event_context
 			DEBUG("'%c' key released in window.", key_code);
 		}
 	}
-
+    
 	return false;
 }
