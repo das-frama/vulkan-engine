@@ -11,6 +11,11 @@
 #include <mach/mach_time.h>
 #include <crt_externs.h>
 
+// For surface creation.
+#define VK_USE_PLATFORM_METAL_EXT
+#include <vulkan/vulkan.h>
+#include "renderer/vulkan/vulkan_types.inl"
+
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
@@ -26,6 +31,7 @@ typedef struct internal_state {
 	ContentView* view;
 	CAMetalLayer* layer;
 	b8 quit_flagged;
+	VkSurfaceKHR surface;
 } internal_state;
 
 @interface WindowDelegate : NSObject <NSWindowDelegate> {
@@ -405,6 +411,25 @@ void platform_sleep(u64 ms) {
 void platform_get_required_extension_names(const char*** names_darray) {
     darray_push(names_darray, &"VK_KHR_macos_surface");
 }
+
+b8 platform_create_vulkan_surface(platform_state* plat_state, vulkan_context* context) {
+    internal_state* state = (internal_state*)plat_state->internal_state;
+    
+    VkWin32SurfaceCreateInfoKHR create_info = {VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT};
+	create_info.pLayer = state->layer;
+    
+    VkResult result = vkCreateMetalSurfaceEXT(context->instance,
+                                              &create_info, 
+                                              context->allocator,
+                                              &state->surface);
+    if (result != VK_SUCCESS) {
+        FATAL("Vulkan surface creation failed!");
+        return false;
+    }
+    
+    context->surface = state->surface;
+    return true;
+
 
 
 #endif

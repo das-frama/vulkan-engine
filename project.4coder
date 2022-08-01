@@ -1,0 +1,50 @@
+version(2);
+project_name = "vulkan_engine";
+
+patterns = {
+"*.c",
+"*.inl",
+"*.cpp",
+"*.h",
+"*.m",
+"*.bat",
+"*.sh",
+"*.4coder",
+};
+blacklist_patterns = {
+".*",
+};
+
+load_paths = {
+.win = {
+{ .path = "", .recursive = true, .relative = true, },
+},
+.linux = {
+{ .path = "", .recursive = true, .relative = true, },
+},
+.mac = {
+{ .path = "", .recursive = true, .relative = true, },
+},
+};
+
+commands = {
+.build = {
+.win = "build-all.bat",
+.linux = "./build.sh",
+.mac = "./build-all-macos.sh",
+.out = "*compilation*",
+.footer_panel = true,
+.save_dirty_files = true,
+.cursor_at_end = false,
+},
+.run = {
+.win = "bin\testbed",
+.linux = "bin/testbed",
+.mac = "bin/testbed",
+.out = "*run*",
+.footer_panel = false,
+.save_dirty_files = false,
+.cursor_at_end = false,
+},
+};
+
