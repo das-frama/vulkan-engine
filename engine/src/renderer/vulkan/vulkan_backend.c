@@ -3,6 +3,7 @@
 #include "vulkan_types.inl"
 #include "vulkan_platform.h"
 #include "vulkan_device.h"
+#include "vulkan_swapchain.h"
 
 #include "core/logger.h"
 #include "core/string.h"
@@ -18,8 +19,14 @@ VKAPI_ATTR VkBool32 VKAPI_CALL vk_debug_callback(
                                                  const VkDebugUtilsMessengerCallbackDataEXT* callback_data,
                                                  void* user_data);
 
+i32 find_memory_index(u32 type_filter, u32 property_flags);
+
 b8 vulkan_renderer_backend_init(renderer_backend* backend, const char* app_name, struct platform_state* plat_state) {
-	context.allocator = 0;
+	// function pointers.
+    context.find_memory_index = find_memory_index;
+    
+    // TODO(frama): Custom allocator.
+    context.allocator = 0;
     
 	// Setup vulkan instance.
 	VkApplicationInfo app_info = {VK_STRUCTURE_TYPE_APPLICATION_INFO};
@@ -122,22 +129,31 @@ b8 vulkan_renderer_backend_init(renderer_backend* backend, const char* app_name,
         return false;
     }
     
+    // Swapchain.
+    vulkan_swapchain_create(&context, context.framebuffer_width, context.framebuffer_height, &context.swapchain);
+    
 	INFO("Vulkan renderer initialized successfully.");
 	return true;
 }
 
 void vulkan_renderer_backend_shut(renderer_backend* backend) {
-	DEBUG("Destroying Vulkan debugger...");
+    DEBUG("Destroying Vulkan swapchain...");
+	vulkan_swapchain_destroy(&context, &context.swapchain);
+    
+    DEBUG("Destroying Vulkan device...");
+    vulkan_device_destroy(&context);
+    
+	DEBUG("Destroying Vulkan surface...");
+    vkDestroySurfaceKHR(context.instance, context.surface, 0);
+    
+    DEBUG("Destroying Vulkan debugger...");
 	if (context.debug_messenger) {
 		PFN_vkDestroyDebugUtilsMessengerEXT func = 
         (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(context.instance, "vkDestroyDebugUtilsMessengerEXT");
 		func(context.instance, context.debug_messenger, context.allocator);
 	}
     
-    vulkan_device_destroy(&context);
-    
 	DEBUG("Destroying Vulkan instance...");
-    vkDestroySurfaceKHR(context.instance, context.surface, 0);
 	vkDestroyInstance(context.instance, context.allocator);
 }
 
@@ -175,4 +191,19 @@ VKAPI_ATTR VkBool32 VKAPI_CALL vk_debug_callback(
 	}
     
 	return VK_FALSE; 
+}
+
+i32 find_memory_index(u32 type_filter, u32 property_flags) {
+    VkPhysicalDeviceMemoryProperties memory_properties;
+    vkGetPhysicalDeviceMemoryProperties(context.device.physical_device, &memory_properties);
+    
+    for (u32 i = 0; i < memory_properties.memoryTypeCount; ++i) {
+        // Check each memory type to see if its bit is set to 1.
+        if (type_filter & (1 << i) && (memory_properties.memoryTypes[i].propertyFlags & property_flags) == property_flags) {
+            return i;
+        }
+    }
+    
+    WARN("Unable to find suitable memory type!");
+    return -1;
 }
