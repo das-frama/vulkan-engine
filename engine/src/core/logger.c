@@ -15,11 +15,11 @@ b8 init_logging() {
 
 void shut_logging() {
     // TODO: cleanup logging entries.
+    
 }
 
 void log_output(log_level level, const char* message, ...) {
     const char* level_strings[6] = {"[FATAL]: ", "[ERROR]: ", "[WARN]:  ", "[INFO]:  ", "[DEBUG]: ", "[TRACE]: "};
-    
     b8 is_error = level < LOG_LEVEL_WARN;
     
     const i32 msg_len = 32000;
